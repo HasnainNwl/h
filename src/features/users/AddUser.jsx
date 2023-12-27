@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "../../components/Button"
 import Textfield from "./Textfield"
 import { useNavigate } from "react-router";
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from "react-redux";
 import { addUser } from "./userslice";
 
@@ -16,7 +17,7 @@ const AddUser = () => {
     const handleAddUser = ()=> {
         SetValues({name:'', email:''});
         dispatch(addUser({
-        id:'3',
+        id:uuidv4(),
         name: values.name,
         email: values.email
         }))
